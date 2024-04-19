@@ -1,8 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:maybe_app/presentation/screens/widgets/chat/my_message_bubble.dart';
 
 import '../widgets/chat/her_message_bubble.dart';
+import '../widgets/share/message_field_bix.dart';
 
 class ChatScreen extends StatelessWidget {
   const ChatScreen({super.key});
@@ -33,14 +33,13 @@ class _ChatView extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         child: Column(children: [
-          Expanded(child: ListView.builder(
-              itemBuilder: (context, index) {
-                return (index % 2 == 0)
-                    ? const HerMessageBubble()
-                    : const MyMessageBubble();
+          Expanded(child: ListView.builder(itemBuilder: (context, index) {
+            return (index % 2 == 0)
+                ? const HerMessageBubble()
+                : const MyMessageBubble();
             // return MyMessageBubble();
           })),
-          const Text('Hola')
+          const MessageFieldBox()
         ]),
       ),
     );
